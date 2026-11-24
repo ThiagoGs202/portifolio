@@ -27,6 +27,7 @@ const href = (k: string) => {
 const fmt = (d: string) => new Date(d).toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
 const totalFeatures = ps.reduce((n: number, p: any) => n + p.features.length, 0);
 const last = registry.lastPortfolioUpdate;
+const stackAll = [...new Set(ps.flatMap((p: any) => p.stack))] as string[];
 const A = about[lang];
 const current = ps.find((p: any) => p.slug === slug);
 const title = page === 'project' ? `${current.name} · Thiago G. Silva` : page === 'home' ? `Thiago G. Silva · ${A.role}` : `${t.nav[page as 'projects']} · Thiago G. Silva`;
@@ -46,10 +47,11 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
       <div><b>{totalFeatures}</b><span>{t.counters.f}</span></div>
       <div><b><time datetime={last} data-ago={last}>{fmt(last)}</time></b><span>{t.counters.u}</span></div>
     </div>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track">{[...stackAll, ...stackAll].map((x: string) => <span>{x}</span>)}</div></div>
     <h2>{t.featured}</h2>
     <div class="grid">
       {ps.filter((p: any) => p.featured).map((p: any) => (
-        <article class="card"><h3><a href={href(`projects/${p.slug}`)}>{p.name}</a></h3><p>{p[lang].summary}</p>
+        <article class="card featured"><h3><a href={href(`projects/${p.slug}`)}>{p.name}</a></h3><p>{p[lang].summary}</p>
           <ul class="tags">{p.stack.map((s: string) => <li>{s}</li>)}</ul></article>
       ))}
     </div>

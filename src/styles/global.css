@@ -20,6 +20,7 @@
   --r1: 4px; --r2: 8px; --r3: 12px; --r4: 20px;
   --font: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --ease-out: cubic-bezier(.23, 1, .32, 1); /* ease-out forte (guia de movimento do Screenrove) */
   --ring: 0 0 0 1px var(--line);
   --hl: light-dark(oklch(100% 0 0 / .9), oklch(100% 0 0 / .06));
 }
@@ -31,7 +32,8 @@
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after, ::view-transition-group(*) { animation: none !important; transition: none !important; }
+    *, *::before, *::after, ::view-transition-group(*) { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    .marquee-track { animation: none !important; flex-wrap: wrap; justify-content: center; width: auto; }
   }
   body { margin: 0; font: 400 1rem/1.65 var(--font); font-feature-settings: "cv11", "ss03"; letter-spacing: -.01em; background: var(--bg); color: var(--text); position: relative; min-height: 100vh; -webkit-font-smoothing: antialiased; }
   /* Fundo: aurora suave no topo + grade de pontos que some com a distância */
@@ -61,14 +63,15 @@
   .brand { font-weight: 650; letter-spacing: -.02em; color: var(--text); text-decoration: none; margin-right: auto; display: inline-flex; align-items: center; gap: var(--s3); min-height: 44px; }
   .brand::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: conic-gradient(from 200deg, var(--accent), oklch(72% .15 210), var(--accent)); box-shadow: 0 0 14px color-mix(in oklab, var(--accent) 60%, transparent); }
   nav { display: flex; flex-wrap: wrap; gap: var(--s1); }
-  nav a { color: var(--muted); text-decoration: none; padding: var(--s2) var(--s3); border-radius: 99px; min-height: 44px; display: inline-flex; align-items: center; font-size: .92rem; font-weight: 500; transition: color .15s, background .15s; }
+  nav a { color: var(--muted); text-decoration: none; padding: var(--s2) var(--s3); border-radius: 99px; min-height: 44px; display: inline-flex; align-items: center; font-size: .92rem; font-weight: 500; transition: color .15s var(--ease-out), background .15s var(--ease-out); }
   nav a:hover { color: var(--text); background: var(--surface-2); }
   nav a[aria-current="page"] { color: var(--text); background: var(--surface-3); }
   .tools { display: flex; gap: var(--s2); align-items: center; }
   .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 99px; overflow: hidden; background: var(--surface); }
   .seg a { padding: var(--s2) var(--s3); min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font: 600 .78rem var(--mono); letter-spacing: .04em; }
   .seg a[aria-current="true"] { background: var(--accent); color: var(--accent-ink); }
-  button, .btn { font: 500 .95rem var(--font); letter-spacing: -.01em; cursor: pointer; border: 1px solid var(--line-strong); background: var(--surface); color: var(--text); border-radius: var(--r2); min-height: 44px; min-width: 44px; padding: var(--s2) var(--s4); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); transition: background .15s, border-color .15s, transform .15s; }
+  button, .btn { font: 500 .95rem var(--font); letter-spacing: -.01em; cursor: pointer; border: 1px solid var(--line-strong); background: var(--surface); color: var(--text); border-radius: var(--r2); min-height: 44px; min-width: 44px; padding: var(--s2) var(--s4); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); transition: background .15s var(--ease-out), border-color .15s var(--ease-out), transform .15s var(--ease-out); }
+  button:active, .btn:active { transform: scale(.97); }
   button:hover, .btn:hover { background: var(--surface-2); color: var(--text); }
   #theme { border-radius: 99px; }
   .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; font-weight: 600; box-shadow: inset 0 1px 0 oklch(100% 0 0 / .25), 0 8px 24px -10px var(--accent); }
@@ -101,7 +104,7 @@
 
   /* Cards: hairline + brilho de borda + spotlight que segue o cursor */
   .grid { display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
-  .card { position: relative; isolation: isolate; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r3); padding: var(--s6); display: flex; flex-direction: column; gap: var(--s3); box-shadow: inset 0 1px 0 var(--hl), 0 1px 2px oklch(0% 0 0 / .04); transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .card { position: relative; isolation: isolate; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r3); padding: var(--s6); display: flex; flex-direction: column; gap: var(--s3); box-shadow: inset 0 1px 0 var(--hl), 0 1px 2px oklch(0% 0 0 / .04); transition: transform .25s var(--ease-out), border-color .25s var(--ease-out), box-shadow .25s var(--ease-out); }
   .card::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .25s;
     background: radial-gradient(22rem circle at var(--mx, 50%) var(--my, 0%), color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%); }
   .card:hover { border-color: color-mix(in oklab, var(--accent) 50%, var(--line)); transform: translateY(-2px); box-shadow: inset 0 1px 0 var(--hl), 0 18px 40px -24px color-mix(in oklab, var(--accent) 60%, transparent); }
@@ -130,6 +133,7 @@
   details[open] > summary::after { rotate: 45deg; }
   details > :not(summary) { color: var(--muted); }
   time { font: .78rem var(--mono); color: var(--muted); }
+  .counters b time { font: inherit; color: inherit; letter-spacing: inherit; }
   .impact { color: var(--ok) !important; font-weight: 550; }
   .timeline details p { max-width: 70ch; }
 
@@ -138,8 +142,30 @@
   @view-transition { navigation: auto; }
 }
 
+@layer components {
+  /* Moldura de hairlines verticais (referência: Dub), só em telas largas */
+  @media (min-width: 1200px) {
+    main.wrap { position: relative; }
+    main.wrap::before, main.wrap::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: linear-gradient(var(--line), transparent 80%); pointer-events: none; }
+    main.wrap::before { left: -1.5rem; } main.wrap::after { right: -1.5rem; }
+  }
+  /* Faixa de tecnologias (ideia: Magic UI Marquee), CSS puro */
+  .marquee { overflow: hidden; margin-block: var(--s8); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+  .marquee-track { display: flex; gap: var(--s3); width: max-content; animation: marquee 40s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-track span { font: 500 .85rem var(--mono); color: var(--muted); padding: var(--s2) var(--s4); border: 1px solid var(--line); border-radius: 99px; background: var(--surface); white-space: nowrap; }
+  @keyframes marquee { to { translate: calc(-50% - var(--s3) / 2) 0; } }
+  /* Feixe de luz girando na borda dos projetos em destaque (ideia: Magic UI Border Beam) */
+  @property --beam { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+  .card.featured::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: conic-gradient(from var(--beam), transparent 0 80%, var(--accent) 92%, transparent 100%);
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); -webkit-mask: linear-gradient(#000 0 0) content-box xor, linear-gradient(#000 0 0);
+    animation: beam 6s linear infinite; }
+  @keyframes beam { to { --beam: 360deg; } }
+}
+
 @layer motion {
-  .reveal { animation: rise .6s cubic-bezier(.2, .7, .2, 1) both; }
+  .reveal { animation: rise .5s var(--ease-out) both; }
   @keyframes rise { from { opacity: 0; translate: 0 14px; } }
   /* Entrada guiada por rolagem: só onde o navegador suporta; sem suporte, o conteúdo aparece normal */
   @supports (animation-timeline: view()) {
