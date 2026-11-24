@@ -1,0 +1,21 @@
+{
+  "slug": "yuka",
+  "name": "Yuka",
+  "status": "ativo",
+  "kind": "claude-project",
+  "createdAt": "2026-11-21",
+  "lastUpdatedAt": "2026-11-24T00:00:00Z",
+  "lastUpdateRef": "updates/2026-11-24",
+  "stack": ["Python", "Ollama", "Voz", "Obsidian"],
+  "links": { "repo": null, "demo": null },
+  "featured": true,
+  "visibility": "public",
+  "pt": {
+    "summary": "Assistente de voz local em português que cuida de finanças, tarefas, vagas e estudos.",
+    "pitch": "A Yuka roda no meu computador, entende comandos falados em português e automatiza a rotina: orçamento, contas a pagar, funil de candidaturas, tarefas, aulas de idiomas e anotações no Obsidian. Usa modelos locais, então funciona sem enviar meus dados para a nuvem."
+  },
+  "en": {
+    "summary": "A local Portuguese voice assistant that handles finances, tasks, job hunting and study.",
+    "pitch": "Yuka runs on my own computer, understands spoken Portuguese commands and automates daily routines: budget, bills, job application funnel, tasks, language lessons and Obsidian notes. It uses local models, so my data stays off the cloud."
+  }
+}

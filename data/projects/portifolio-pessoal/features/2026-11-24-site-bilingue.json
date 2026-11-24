@@ -1,0 +1,3 @@
+{ "date": "2026-11-24", "status": "entregue", "tags": ["site", "i18n"],
+  "pt": { "title": "Site bilíngue com seletor de idioma", "impact": "Qualquer visitante lê tudo em português ou inglês.", "body": "Todas as páginas existem em /pt e /en, com seletor fixo no topo. A raiz escolhe o idioma pelo navegador e a escolha fica salva. O conteúdo vem de arquivos JSON com os dois idiomas, validados no build." },
+  "en": { "title": "Bilingual site with language switcher", "impact": "Every visitor can read everything in Portuguese or English.", "body": "Every page exists under /pt and /en, with a switcher pinned to the top. The root picks the language from the browser and remembers the choice. Content comes from JSON files holding both languages, validated at build time." } }

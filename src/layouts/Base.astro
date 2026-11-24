@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+import { ui, about, type Lang } from '../lib/data';
+interface Props { lang: Lang; title: string; description: string; key: string; }
+const { lang, title, description, key: pageKey } = Astro.props;
+const t = ui[lang];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const other: Lang = lang === 'pt' ? 'en' : 'pt';
+const path = (l: Lang, k: string) => {
+  const [section, slug] = k.split('/');
+  const sec = section === 'home' ? '' : ui[l].slugs[section as 'projects'] + '/';
+  return `${base}/${l}/${sec}${slug ? slug + '/' : ''}`;
+};
+const nav = ['home', 'projects', 'about', 'news'] as const;
+const url = new URL(path(lang, pageKey), Astro.site).href;
+---
+<!doctype html>
+<html lang={lang === 'pt' ? 'pt-BR' : 'en'}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={url} />
+  <link rel="alternate" hreflang="pt-BR" href={new URL(path('pt', pageKey), Astro.site).href} />
+  <link rel="alternate" hreflang="en" href={new URL(path('en', pageKey), Astro.site).href} />
+  <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'self'; form-action 'none'" />
+  <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+  <script is:inline>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;localStorage.setItem('lang',document.documentElement.lang.slice(0,2))}catch(e){}</script>
+  <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'Person', name: about.name, url: about.links.github, jobTitle: about[lang].role })} />
+</head>
+<body>
+  <a class="skip" href="#main">{t.skip}</a>
+  <header class="top"><div class="wrap">
+    <a class="brand" href={path(lang, 'home')}>Thiago G. Silva</a>
+    <nav aria-label="Principal">
+      {nav.map((n) => <a href={path(lang, n)} aria-current={pageKey.split('/')[0] === n ? 'page' : undefined}>{t.nav[n]}</a>)}
+    </nav>
+    <div class="tools">
+      <div class="seg" role="group" aria-label={t.lang}>
+        <a href={path('pt', pageKey)} hreflang="pt-BR" lang="pt" aria-current={lang === 'pt' ? 'true' : undefined}>PT</a>
+        <a href={path('en', pageKey)} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+      </div>
+      <button id="theme" type="button" aria-label={t.theme} title={t.theme}>◐</button>
+    </div>
+  </div></header>
+  <main id="main" class="wrap"><slot /></main>
+  <footer><div class="wrap">© 2026 {about.name} · {t.footer}</div></footer>
+  <script is:inline>
+    document.getElementById('theme').addEventListener('click',function(){var d=document.documentElement,c=d.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
+  </script>
+</body>
+</html>

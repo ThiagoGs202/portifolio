@@ -1,0 +1,3 @@
+{ "date": "2026-11-24", "status": "entregue", "tags": ["interface"],
+  "pt": { "title": "Busca, filtros e tema claro/escuro", "impact": "Achar um projeto leva segundos.", "body": "A lista de projetos tem busca instantânea, filtro por tecnologia e ordenação, com o estado na URL para compartilhar. O tema segue o sistema e pode ser trocado, respeitando movimento reduzido." },
+  "en": { "title": "Search, filters and light/dark theme", "impact": "Finding a project takes seconds.", "body": "The project list has instant search, a technology filter and sorting, with state kept in the URL for sharing. The theme follows the system and can be toggled, honoring reduced motion." } }

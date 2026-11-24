@@ -1,0 +1,22 @@
+{
+  "name": "Thiago Gomes e Silva",
+  "links": { "github": "https://github.com/ThiagoGs202" },
+  "pt": {
+    "role": "Analista de TI · suporte técnico e automação",
+    "tagline": "Resolvo o problema na causa, padronizo o que se repete e automatizo o resto.",
+    "bio": "Profissional de TI com experiência em suporte técnico e atendimento consultivo, remoto e presencial. Atuei com automação comercial e ERPs em nuvem, incluindo parametrização fiscal e integração de periféricos. Hoje também construo projetos pessoais de automação e IA aplicada.",
+    "location": "Maringá, PR · Brasil",
+    "education": "Engenharia de Software, UniCesumar (2022–2026)",
+    "languages": "Português nativo · Inglês avançado",
+    "skills": ["Suporte técnico e help desk", "Automação comercial e ERP SaaS", "Parametrização fiscal (NF-e, NFC-e)", "Redes e servidores", "Linux · Windows · macOS", "AutoHotkey e terminal", "Python e IA aplicada"]
+  },
+  "en": {
+    "role": "IT Analyst · technical support and automation",
+    "tagline": "I fix problems at the root, standardize what repeats and automate the rest.",
+    "bio": "IT professional with experience in technical support and consultative service, remote and on-site. I worked with retail automation and cloud ERPs, including tax configuration and point-of-sale hardware integration. I also build personal automation and applied-AI projects.",
+    "location": "Maringá, PR · Brazil",
+    "education": "Software Engineering, UniCesumar (2022–2026)",
+    "languages": "Portuguese native · English advanced",
+    "skills": ["Technical support and help desk", "Retail automation and SaaS ERP", "Tax configuration (NF-e, NFC-e)", "Networks and servers", "Linux · Windows · macOS", "AutoHotkey and terminal", "Python and applied AI"]
+  }
+}

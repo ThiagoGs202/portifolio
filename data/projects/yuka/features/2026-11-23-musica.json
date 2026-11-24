@@ -1,0 +1,3 @@
+{ "date": "2026-11-23", "status": "entregue", "tags": ["voz", "midia"],
+  "pt": { "title": "Música do meu gosto com volume inteligente", "impact": "Ela abaixa o som sozinha quando falo.", "body": "Toca músicas conforme meus gostos no YouTube Music e reduz só o volume do navegador quando detecta voz, devolvendo suavemente depois." },
+  "en": { "title": "Music to my taste with smart volume", "impact": "It lowers the sound on its own when I speak.", "body": "Plays music matching my tastes on YouTube Music and lowers only the browser volume when it hears speech, restoring it smoothly afterwards." } }
