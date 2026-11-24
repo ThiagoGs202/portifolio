@@ -46,7 +46,7 @@ const url = new URL(path(lang, pageKey), Astro.site).href;
     </div>
   </div></header>
   <main id="main" class="wrap"><slot /></main>
-  <footer><div class="wrap">© 2026 {about.name} · {t.footer}</div></footer>
+  <footer><div class="wrap">© 2026 {about.name}</div></footer>
   <script is:inline>
     document.getElementById('theme').addEventListener('click',function(){var d=document.documentElement,c=d.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
   </script>

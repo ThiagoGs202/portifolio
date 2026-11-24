@@ -96,6 +96,24 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
       {current.links.repo && <a class="btn" href={current.links.repo} rel="noopener noreferrer">{t.repo}</a>}
       {current.links.demo && <a class="btn" href={current.links.demo} rel="noopener noreferrer">{t.demo}</a>}
     </p>
+    {current.metrics && (<><h2>{t.metrics}</h2><div class="counters">{current.metrics.map((m: any) => <div><b>{m.value}</b><span>{m[lang]}</span></div>)}</div></>)}
+    {current[lang].architecture && (<><h2>{t.architecture}</h2><div class="grid">{current[lang].architecture.map((x: any) => <div class="card"><h3>{x.title}</h3><p>{x.text}</p></div>)}</div></>)}
+    <h2>{t.features}</h2>
+    {[...new Set(current.features.map((f: any) => f.group || ''))].sort((a: any, b: any) => Object.keys(t.groups).indexOf(a) - Object.keys(t.groups).indexOf(b)).map((g: any) => (
+      <>
+        {g && <h3>{t.groups[g] ?? g}</h3>}
+        <div class="timeline">
+          {current.features.filter((f: any) => (f.group || '') === g).map((f: any, i: number) => (
+            <details name={`f-${g}`} open={!g && i === 0}>
+              <summary><span>{f[lang].title}</span> <time datetime={f.date}>{fmt(f.date)}</time> <span class="badge">{t.delivered[f.status as 'entregue']}</span></summary>
+              <p class="impact">{f[lang].impact}</p><p>{f[lang].body}</p>
+              <ul class="tags">{f.tags.map((tg: string) => <li>{tg}</li>)}</ul>
+            </details>
+          ))}
+        </div>
+      </>
+    ))}
+    {['decisions', 'security', 'learnings'].map((k) => current[lang][k] && (<><h2>{t[k as 'decisions']}</h2><div class="grid">{current[lang][k].map((x: any) => <div class="card"><h3>{x.title}</h3><p>{x.text}</p></div>)}</div></>))}
   </article>
 )}
 {page === 'about' && (
