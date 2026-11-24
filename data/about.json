@@ -19,16 +19,8 @@
       "AutoHotkey e terminal",
       "Python e IA aplicada"
     ],
-    "summary": "Resolvo problemas de TI até a causa e deixo o processo pronto para o problema não voltar. No suporte, cerca de 80% dos chamados terminam no primeiro contato; o que se repete vira fluxo ou script, e é daí que nascem meus projetos com IA.",
+    "summary": "Resolvo problemas de TI até a causa e deixo o processo pronto para o problema não voltar. O que se repete vira fluxo ou script, e é daí que nascem meus projetos com IA.",
     "highlights": [
-      {
-        "v": "25–40",
-        "l": "chamados por dia no suporte"
-      },
-      {
-        "v": "~80%",
-        "l": "resolvidos no primeiro contato"
-      },
       {
         "v": "2022–2026",
         "l": "Engenharia de Software"
@@ -36,6 +28,10 @@
       {
         "v": "Inglês",
         "l": "avançado"
+      },
+      {
+        "v": "Python",
+        "l": "e IA aplicada"
       }
     ],
     "principles": [
@@ -55,8 +51,7 @@
         "t": "Comunicação clara",
         "d": "Explico sem jargão desnecessário e valido o resultado com quem usa."
       }
-    ],
-    "interests": "Jogos competitivos, esportes, carros e automação."
+    ]
   },
   "en": {
     "role": "IT Analyst · technical support and automation",
@@ -74,16 +69,8 @@
       "AutoHotkey and terminal",
       "Python and applied AI"
     ],
-    "summary": "I trace IT problems to the root cause and leave the process ready so they do not come back. In support, about 80% of tickets close on first contact; whatever repeats becomes a workflow or a script, and that is where my AI projects come from.",
+    "summary": "I trace IT problems to the root cause and leave the process ready so they do not come back. Whatever repeats becomes a workflow or a script, and that is where my AI projects come from.",
     "highlights": [
-      {
-        "v": "25–40",
-        "l": "tickets per day in support"
-      },
-      {
-        "v": "~80%",
-        "l": "solved on first contact"
-      },
       {
         "v": "2022–2026",
         "l": "Software Engineering"
@@ -91,6 +78,10 @@
       {
         "v": "English",
         "l": "advanced"
+      },
+      {
+        "v": "Python",
+        "l": "and applied AI"
       }
     ],
     "principles": [
@@ -110,7 +101,6 @@
         "t": "Clear communication",
         "d": "I explain without needless jargon and validate the result with the user."
       }
-    ],
-    "interests": "Competitive games, sports, cars and automation."
+    ]
   }
 }

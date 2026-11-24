@@ -17,7 +17,6 @@ const H = `h${level}` as 'h1';
       <dt>{t.about}</dt><dd>{about.name} · {A.location}</dd>
       <dt>{t.education}</dt><dd>{A.education}</dd>
       <dt>{t.languages}</dt><dd>{A.languages}</dd>
-      <dt>{t.interests}</dt><dd>{A.interests}</dd>
       <dt>{t.contact}</dt><dd><a href={about.links.github} rel="noopener noreferrer">GitHub</a></dd>
     </dl>
     <div><h3>{t.skills}</h3><ul class="tags">{A.skills.map((s: string) => <li>{s}</li>)}</ul></div>

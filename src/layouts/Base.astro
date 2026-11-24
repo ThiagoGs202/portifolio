@@ -1,4 +1,5 @@
 ---
+import '@fontsource-variable/inter';
 import '../styles/global.css';
 import { ui, about, type Lang } from '../lib/data';
 interface Props { lang: Lang; title: string; description: string; key: string; }
@@ -49,6 +50,9 @@ const url = new URL(path(lang, pageKey), Astro.site).href;
   <footer><div class="wrap">© 2026 {about.name}</div></footer>
   <script is:inline>
     document.getElementById('theme').addEventListener('click',function(){var d=document.documentElement,c=d.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
+  </script>
+  <script is:inline>
+    (function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.addEventListener('pointermove',function(e){var c=e.target.closest&&e.target.closest('.card');if(!c)return;var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true})})();
   </script>
 </body>
 </html>
