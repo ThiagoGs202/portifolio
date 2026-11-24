@@ -35,6 +35,8 @@
     *, *::before, *::after, ::view-transition-group(*) { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     .marquee-track { animation: none !important; flex-wrap: wrap; justify-content: center; width: auto; }
   }
+  html, body { overflow-x: clip; }
+  .grid > *, .counters > *, .about-grid > *, .card { min-width: 0; overflow-wrap: anywhere; }
   body { margin: 0; font: 400 1rem/1.65 var(--font); font-feature-settings: "cv11", "ss03"; letter-spacing: -.01em; background: var(--bg); color: var(--text); position: relative; min-height: 100vh; -webkit-font-smoothing: antialiased; }
   /* Fundo: aurora suave no topo + grade de pontos que some com a distância */
   body::before { content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
