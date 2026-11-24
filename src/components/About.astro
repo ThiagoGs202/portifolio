@@ -1,0 +1,25 @@
+---
+import { about, ui, type Lang } from '../lib/data';
+const { lang, level = 2 } = Astro.props as { lang: Lang; level?: 1 | 2 };
+const t = ui[lang]; const A = about[lang];
+const H = `h${level}` as 'h1';
+---
+<section class="about-block">
+  <p class="role">{A.role}</p>
+  <H class="about-title">{t.about}</H>
+  <p class="lead">{A.summary}</p>
+  <p>{A.bio}</p>
+  <div class="counters">{A.highlights.map((h: any) => <div><b>{h.v}</b><span>{h.l}</span></div>)}</div>
+  <h3>{t.principles}</h3>
+  <div class="grid">{A.principles.map((p: any) => <div class="card"><h3>{p.t}</h3><p>{p.d}</p></div>)}</div>
+  <div class="about-grid">
+    <dl>
+      <dt>{t.about}</dt><dd>{about.name} · {A.location}</dd>
+      <dt>{t.education}</dt><dd>{A.education}</dd>
+      <dt>{t.languages}</dt><dd>{A.languages}</dd>
+      <dt>{t.interests}</dt><dd>{A.interests}</dd>
+      <dt>{t.contact}</dt><dd><a href={about.links.github} rel="noopener noreferrer">GitHub</a></dd>
+    </dl>
+    <div><h3>{t.skills}</h3><ul class="tags">{A.skills.map((s: string) => <li>{s}</li>)}</ul></div>
+  </div>
+</section>

@@ -33,7 +33,7 @@ const url = new URL(path(lang, pageKey), Astro.site).href;
 <body>
   <a class="skip" href="#main">{t.skip}</a>
   <header class="top"><div class="wrap">
-    <a class="brand" href={path(lang, 'home')}>Thiago G. Silva</a>
+    <a class="brand" href={path(lang, 'home')}>{about.name}</a>
     <nav aria-label="Principal">
       {nav.map((n) => <a href={path(lang, n)} aria-current={pageKey.split('/')[0] === n ? 'page' : undefined}>{t.nav[n]}</a>)}
     </nav>

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import About from '../../components/About.astro';
 import { ui, about, projects, updates, registry, langs, type Lang } from '../../lib/data';
 export function getStaticPaths() {
   const ps = projects();
@@ -33,6 +34,8 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
 ---
 <Base lang={lang} title={title} description={desc} key={page === 'project' ? `projects/${slug}` : page}>
 {page === 'home' && (
+  <>
+  <About lang={lang} level={2} />
   <section class="hero reveal">
     <p class="role">{A.role}</p>
     <h1>{t.hero}</h1>
@@ -51,6 +54,7 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
       ))}
     </div>
   </section>
+  </>
 )}
 {page === 'projects' && (
   <section>
@@ -116,22 +120,7 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
     {['decisions', 'security', 'learnings'].map((k) => current[lang][k] && (<><h2>{t[k as 'decisions']}</h2><div class="grid">{current[lang][k].map((x: any) => <div class="card"><h3>{x.title}</h3><p>{x.text}</p></div>)}</div></>))}
   </article>
 )}
-{page === 'about' && (
-  <section>
-    <h1>{t.about}</h1>
-    <p class="role">{A.role}</p>
-    <p>{A.bio}</p>
-    <div class="about-grid">
-      <dl>
-        <dt>{t.about}</dt><dd>{about.name} · {A.location}</dd>
-        <dt>{t.education}</dt><dd>{A.education}</dd>
-        <dt>{t.languages}</dt><dd>{A.languages}</dd>
-        <dt>{t.contact}</dt><dd><a href={about.links.github} rel="noopener noreferrer">GitHub</a></dd>
-      </dl>
-      <div><h2>{t.skills}</h2><ul class="tags">{A.skills.map((s: string) => <li>{s}</li>)}</ul></div>
-    </div>
-  </section>
-)}
+{page === 'about' && <About lang={lang} level={1} />}
 {page === 'news' && (
   <section>
     <h1>{t.newsTitle}</h1>

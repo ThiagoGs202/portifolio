@@ -1,6 +1,8 @@
 {
   "name": "Thiago Gomes e Silva",
-  "links": { "github": "https://github.com/ThiagoGs202" },
+  "links": {
+    "github": "https://github.com/ThiagoGs202"
+  },
   "pt": {
     "role": "Analista de TI · suporte técnico e automação",
     "tagline": "Resolvo o problema na causa, padronizo o que se repete e automatizo o resto.",
@@ -8,7 +10,53 @@
     "location": "Maringá, PR · Brasil",
     "education": "Engenharia de Software, UniCesumar (2022–2026)",
     "languages": "Português nativo · Inglês avançado",
-    "skills": ["Suporte técnico e help desk", "Automação comercial e ERP SaaS", "Parametrização fiscal (NF-e, NFC-e)", "Redes e servidores", "Linux · Windows · macOS", "AutoHotkey e terminal", "Python e IA aplicada"]
+    "skills": [
+      "Suporte técnico e help desk",
+      "Automação comercial e ERP SaaS",
+      "Parametrização fiscal (NF-e, NFC-e)",
+      "Redes e servidores",
+      "Linux · Windows · macOS",
+      "AutoHotkey e terminal",
+      "Python e IA aplicada"
+    ],
+    "summary": "Resolvo problemas de TI até a causa e deixo o processo pronto para o problema não voltar. No suporte, cerca de 80% dos chamados terminam no primeiro contato; o que se repete vira fluxo ou script, e é daí que nascem meus projetos com IA.",
+    "highlights": [
+      {
+        "v": "25–40",
+        "l": "chamados por dia no suporte"
+      },
+      {
+        "v": "~80%",
+        "l": "resolvidos no primeiro contato"
+      },
+      {
+        "v": "2022–2026",
+        "l": "Engenharia de Software"
+      },
+      {
+        "v": "Inglês",
+        "l": "avançado"
+      }
+    ],
+    "principles": [
+      {
+        "t": "Causa raiz",
+        "d": "Não paro no sintoma: investigo logs, configuração e hardware até entender por que aconteceu."
+      },
+      {
+        "t": "Padronização",
+        "d": "Todo atendimento recorrente vira fluxo ou modelo reutilizável."
+      },
+      {
+        "t": "Automação",
+        "d": "Rotina repetitiva vira script, em AutoHotkey, terminal ou Python."
+      },
+      {
+        "t": "Comunicação clara",
+        "d": "Explico sem jargão desnecessário e valido o resultado com quem usa."
+      }
+    ],
+    "interests": "Jogos competitivos, esportes, carros e automação."
   },
   "en": {
     "role": "IT Analyst · technical support and automation",
@@ -17,6 +65,52 @@
     "location": "Maringá, PR · Brazil",
     "education": "Software Engineering, UniCesumar (2022–2026)",
     "languages": "Portuguese native · English advanced",
-    "skills": ["Technical support and help desk", "Retail automation and SaaS ERP", "Tax configuration (NF-e, NFC-e)", "Networks and servers", "Linux · Windows · macOS", "AutoHotkey and terminal", "Python and applied AI"]
+    "skills": [
+      "Technical support and help desk",
+      "Retail automation and SaaS ERP",
+      "Tax configuration (NF-e, NFC-e)",
+      "Networks and servers",
+      "Linux · Windows · macOS",
+      "AutoHotkey and terminal",
+      "Python and applied AI"
+    ],
+    "summary": "I trace IT problems to the root cause and leave the process ready so they do not come back. In support, about 80% of tickets close on first contact; whatever repeats becomes a workflow or a script, and that is where my AI projects come from.",
+    "highlights": [
+      {
+        "v": "25–40",
+        "l": "tickets per day in support"
+      },
+      {
+        "v": "~80%",
+        "l": "solved on first contact"
+      },
+      {
+        "v": "2022–2026",
+        "l": "Software Engineering"
+      },
+      {
+        "v": "English",
+        "l": "advanced"
+      }
+    ],
+    "principles": [
+      {
+        "t": "Root cause",
+        "d": "I do not stop at the symptom: I dig through logs, configuration and hardware until I know why it happened."
+      },
+      {
+        "t": "Standardization",
+        "d": "Every recurring ticket becomes a reusable workflow or template."
+      },
+      {
+        "t": "Automation",
+        "d": "Repetitive routines become scripts, in AutoHotkey, terminal or Python."
+      },
+      {
+        "t": "Clear communication",
+        "d": "I explain without needless jargon and validate the result with the user."
+      }
+    ],
+    "interests": "Competitive games, sports, cars and automation."
   }
 }
