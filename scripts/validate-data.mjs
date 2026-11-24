@@ -14,7 +14,7 @@ const project = z.object({
   stack: z.array(txt), links: z.object({ repo: z.string().url().nullable(), demo: z.string().url().nullable() }),
   featured: z.boolean(), visibility: z.enum(['public', 'private']),
 }).and(bi({ summary: z.string().max(160), pitch: txt }))
-  .and(z.object({ metrics: z.array(z.object({ value: txt, pt: txt, en: txt })).optional() }));
+  .and(z.object({ metrics: z.array(z.object({ value: z.union([txt, z.object({ pt: txt, en: txt })]), pt: txt, en: txt })).optional() }));
 const sec = z.array(z.object({ title: txt, text: txt })).optional();
 const extra = z.object({ pt: z.object({ architecture: sec, decisions: sec, security: sec, learnings: sec }).passthrough(), en: z.object({ architecture: sec, decisions: sec, security: sec, learnings: sec }).passthrough() }).passthrough();
 const feature = z.object({ date: iso, status: z.enum(['entregue', 'em-andamento', 'planejada']), group: z.string().optional(), tags: z.array(txt) })

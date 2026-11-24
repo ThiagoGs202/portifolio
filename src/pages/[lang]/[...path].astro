@@ -60,7 +60,7 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
 )}
 {page === 'projects' && (
   <section>
-    <h1>{t.nav.projects}</h1>
+    <header class="page-head reveal"><p class="eyebrow">{t.nav.projects}</p><h1>{t.projectsTitle}</h1><p class="sub">{t.projectsLead}</p></header>
     <div class="filters">
       <input id="q" type="search" placeholder={t.search} aria-label={t.search} />
       <select id="stack" aria-label={t.stack}><option value="">{t.allStack}</option>{[...new Set(ps.flatMap((p: any) => p.stack))].sort().map((s: any) => <option>{s}</option>)}</select>
@@ -71,7 +71,7 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
         <article class="card" data-text={`${p.name} ${p[lang].summary} ${p.stack.join(' ')}`.toLowerCase()} data-stack={p.stack.join('|')} data-date={p.lastUpdatedAt} data-n={p.features.length}>
           <h3><a href={href(`projects/${p.slug}`)}>{p.name}</a></h3><p>{p[lang].summary}</p>
           <ul class="tags">{p.stack.map((s: string) => <li>{s}</li>)}</ul>
-          <small><span class="badge ok">{t.status[p.status as 'ativo']}</span> · {p.features.length} {t.counters.f}</small>
+          <small class="meta"><span class="badge ok">{t.status[p.status as 'ativo']}</span><span>{p.features.length} {t.counters.f}</span><span class="go" aria-hidden="true">→</span></small>
         </article>
       ))}
     </div>
@@ -102,7 +102,7 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
       {current.links.repo && <a class="btn" href={current.links.repo} rel="noopener noreferrer">{t.repo}</a>}
       {current.links.demo && <a class="btn" href={current.links.demo} rel="noopener noreferrer">{t.demo}</a>}
     </p>
-    {current.metrics && (<><h2>{t.metrics}</h2><div class="counters">{current.metrics.map((m: any) => <div><b>{m.value}</b><span>{m[lang]}</span></div>)}</div></>)}
+    {current.metrics && (<><h2>{t.metrics}</h2><div class="counters">{current.metrics.map((m: any) => <div><b>{typeof m.value === 'object' ? m.value[lang] : m.value}</b><span>{m[lang]}</span></div>)}</div></>)}
     {current[lang].architecture && (<><h2>{t.architecture}</h2><div class="grid">{current[lang].architecture.map((x: any) => <div class="card"><h3>{x.title}</h3><p>{x.text}</p></div>)}</div></>)}
     <h2>{t.features}</h2>
     {[...new Set(current.features.map((f: any) => f.group || ''))].sort((a: any, b: any) => Object.keys(t.groups).indexOf(a) - Object.keys(t.groups).indexOf(b)).map((g: any) => (
@@ -125,7 +125,7 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
 {page === 'about' && <About lang={lang} level={1} />}
 {page === 'news' && (
   <section>
-    <h1>{t.newsTitle}</h1>
+    <header class="page-head reveal"><p class="eyebrow">{t.nav.news}</p><h1>{t.newsTitle}</h1><p class="sub">{t.newsLead}</p></header>
     <div class="timeline">
       {updates().map((u: any) => (
         <details name="news" open><summary><time datetime={u.date}>{fmt(u.date)}</time></summary><p>{u[lang]}</p>
