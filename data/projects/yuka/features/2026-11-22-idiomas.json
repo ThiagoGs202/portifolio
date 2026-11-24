@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-22",
+  "status": "entregue",
+  "group": "estudo",
+  "tags": [
+    "idiomas",
+    "voz"
+  ],
+  "pt": {
+    "title": "Aulas de idiomas e pronúncia",
+    "impact": "Estudo diário por voz com progresso medido.",
+    "body": "Aulas e conversação em nove idiomas, com voz no idioma-alvo, nível, XP, sequência e vocabulário com repetição espaçada (Leitner). O treino de pronúncia dá nota de 0 a 100 pela similaridade com o alvo, em até 3 tentativas, e as aulas viram notas automáticas no Obsidian."
+  },
+  "en": {
+    "title": "Language lessons and pronunciation",
+    "impact": "Daily voice study with measured progress.",
+    "body": "Lessons and conversation in nine languages, with target-language voice, level, XP, streak and spaced-repetition vocabulary (Leitner). Pronunciation practice scores 0 to 100 by similarity to the target, in up to 3 tries, and lessons become automatic Obsidian notes."
+  }
+}

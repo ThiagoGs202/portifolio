@@ -1,3 +1,0 @@
-{ "date": "2026-11-23", "status": "entregue", "tags": ["financas", "voz"],
-  "pt": { "title": "Orçamento e metas de gastos", "impact": "Aviso falado antes de estourar o limite.", "body": "Limite por categoria por voz, aviso a 80% e 100% ao lançar um gasto, meta mensal de economia e painel com barras na planilha de gastos." },
-  "en": { "title": "Budget and spending goals", "impact": "A spoken warning before a limit is blown.", "body": "Per-category limits by voice, warnings at 80% and 100% when logging an expense, a monthly savings goal and a bar dashboard in the expenses spreadsheet." } }

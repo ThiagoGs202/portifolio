@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "estudo",
+  "tags": [
+    "codigo",
+    "seguranca"
+  ],
+  "pt": {
+    "title": "Assistente de código",
+    "impact": "Entende o projeto e roda rascunhos só com aprovação.",
+    "body": "Responde sobre o próprio código (busca BM25, pulando segredos), explica erros copiados e rascunha scripts validando a sintaxe e listando riscos. Só executa um rascunho com um \"sim\", em Python isolado, por 30 s, sem as chaves no ambiente e com saída limitada."
+  },
+  "en": {
+    "title": "Coding assistant",
+    "impact": "Understands the project and runs drafts only with approval.",
+    "body": "Answers about its own code (BM25 search, skipping secrets), explains pasted errors and drafts scripts, validating syntax and listing risks. It runs a draft only after a \"yes\", in isolated Python for 30 s, with no keys in the environment and capped output."
+  }
+}

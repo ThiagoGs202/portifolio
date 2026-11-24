@@ -1,3 +1,19 @@
-{ "date": "2026-11-23", "status": "entregue", "tags": ["voz", "midia"],
-  "pt": { "title": "Música do meu gosto com volume inteligente", "impact": "Ela abaixa o som sozinha quando falo.", "body": "Toca músicas conforme meus gostos no YouTube Music e reduz só o volume do navegador quando detecta voz, devolvendo suavemente depois." },
-  "en": { "title": "Music to my taste with smart volume", "impact": "It lowers the sound on its own when I speak.", "body": "Plays music matching my tastes on YouTube Music and lowers only the browser volume when it hears speech, restoring it smoothly afterwards." } }
+{
+  "date": "2026-11-23",
+  "status": "entregue",
+  "group": "produtividade",
+  "tags": [
+    "musica",
+    "voz"
+  ],
+  "pt": {
+    "title": "Música pelo gosto com volume inteligente",
+    "impact": "Ela abaixa o som sozinha quando falo.",
+    "body": "Perfil com pesos de gêneros e artistas, sorteio ponderado com 20% de novidade e sem repetir as últimas 15 faixas, e comandos \"gostei\", \"pulei\" e \"outra\". Quando falo com a Yuka, o volume do navegador cai a 30% com rampa de 0,35 s e volta suave, sem mexer no volume geral."
+  },
+  "en": {
+    "title": "Taste-based music with smart volume",
+    "impact": "It lowers the sound on its own when I speak.",
+    "body": "Weighted genre and artist profile, weighted draw with 20% novelty and no repeats of the last 15 tracks, and \"like\", \"skip\" and \"another\" commands. When I talk to Yuka, the browser volume drops to 30% with a 0.35 s ramp and returns smoothly, without touching system volume."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "ia",
+  "tags": [
+    "ia",
+    "paralelismo"
+  ],
+  "pt": {
+    "title": "Modo enxame",
+    "impact": "Pedidos grandes em 14 a 18 segundos.",
+    "body": "Um planejador divide o pedido em subtarefas independentes, executadas em paralelo (um trabalhador por provedor, com devolução da tarefa em caso de falha) e sintetizadas em uma resposta falada. Medido: 3 a 4 partes em cerca de 14 a 18 s."
+  },
+  "en": {
+    "title": "Swarm mode",
+    "impact": "Big requests in 14 to 18 seconds.",
+    "body": "A planner splits the request into independent sub-tasks run in parallel (one worker per provider, with task hand-back on failure) and synthesized into one spoken answer. Measured: 3 to 4 parts in about 14 to 18 s."
+  }
+}

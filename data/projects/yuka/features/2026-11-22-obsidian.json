@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-22",
+  "status": "entregue",
+  "group": "produtividade",
+  "tags": [
+    "obsidian",
+    "memoria"
+  ],
+  "pt": {
+    "title": "Notas, tarefas e segundo cérebro no Obsidian",
+    "impact": "Memória de longo prazo que se alimenta sozinha.",
+    "body": "Busca, leitura e anotação no cofre (busca BM25 com embeddings, fundidos por RRF). A escrita só acrescenta e pede confirmação, e notas privadas ficam invisíveis para a IA. \"Anota isso\" cria nota nova sem sobrescrever, e tarefas são criadas, listadas e concluídas por voz."
+  },
+  "en": {
+    "title": "Notes, tasks and second brain in Obsidian",
+    "impact": "Long-term memory that feeds itself.",
+    "body": "Search, read and write in the vault (BM25 plus embeddings, fused by RRF). Writes only append and ask for confirmation, and private notes stay invisible to the AI. \"Note this\" creates a new note without overwriting, and tasks are created, listed and completed by voice."
+  }
+}

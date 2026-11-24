@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-23",
+  "status": "em-andamento",
+  "group": "carreira",
+  "tags": [
+    "carreira",
+    "voz"
+  ],
+  "pt": {
+    "title": "Candidaturas, funil e currículo ATS",
+    "impact": "Cada vaga com currículo sob medida.",
+    "body": "Busca vagas em páginas públicas e gera um currículo ATS por vaga (PDF e DOCX). A candidatura é assistida: a Yuka abre a vaga e quem envia sou eu. O funil por voz (enviada, entrevista, oferta, recusada) tem follow-up após 7 dias e painel com cartões e rosca. Aguarda teste real em parte dos casos."
+  },
+  "en": {
+    "title": "Applications, funnel and ATS résumé",
+    "impact": "A tailored résumé for every job.",
+    "body": "Searches public job pages and generates an ATS résumé per job (PDF and DOCX). Applying is assisted: Yuka opens the job and I send it. The voice funnel (sent, interview, offer, rejected) has a 7-day follow-up and a dashboard with cards and a donut chart. Real-world testing is still pending for part of the cases."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-23",
+  "status": "em-andamento",
+  "group": "financas",
+  "tags": [
+    "automacao",
+    "financas"
+  ],
+  "pt": {
+    "title": "Contas a pagar",
+    "impact": "Boletos não passam do vencimento.",
+    "body": "Detecta boletos e faturas nos e-mails (corpo e PDF), extrai emissor, valor e vencimento por regex, lança na planilha e lembra 3 dias antes e no dia. Nunca paga nada. Aguarda teste real."
+  },
+  "en": {
+    "title": "Bills payable",
+    "impact": "Bills do not slip past their due date.",
+    "body": "Detects bills and invoices in email (body and PDF), extracts issuer, amount and due date by regex, logs them in the spreadsheet and reminds 3 days before and on the day. It never pays anything. Real-world testing is pending."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-23",
+  "status": "entregue",
+  "group": "financas",
+  "tags": [
+    "financas",
+    "dashboard"
+  ],
+  "pt": {
+    "title": "Gastos, orçamento e dashboards web",
+    "impact": "Aviso falado antes de estourar o limite.",
+    "body": "Lançamento por voz (\"gastei 40 no mercado\"), limites por categoria com aviso a 80% e 100% e meta de economia. Os dashboards web locais usam SVG puro, sem biblioteca e sem rede, e um dashboard novo é só um arquivo. Os dados entram na tela via textContent, contra injeção de HTML. O teste no iPhone ainda está pendente."
+  },
+  "en": {
+    "title": "Spending, budget and web dashboards",
+    "impact": "A spoken warning before a limit is blown.",
+    "body": "Voice logging (\"spent 40 on groceries\"), per-category limits with warnings at 80% and 100% and a savings goal. Local web dashboards use plain SVG, no library and no network, and a new dashboard is just one file. Data enters the page through textContent, against HTML injection. Testing on the phone is still pending."
+  }
+}

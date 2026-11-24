@@ -13,8 +13,11 @@ const project = z.object({
   kind: z.literal('claude-project'), createdAt: iso, lastUpdatedAt: iso, lastUpdateRef: z.string(),
   stack: z.array(txt), links: z.object({ repo: z.string().url().nullable(), demo: z.string().url().nullable() }),
   featured: z.boolean(), visibility: z.enum(['public', 'private']),
-}).and(bi({ summary: z.string().max(160), pitch: txt }));
-const feature = z.object({ date: iso, status: z.enum(['entregue', 'em-andamento', 'planejada']), tags: z.array(txt) })
+}).and(bi({ summary: z.string().max(160), pitch: txt }))
+  .and(z.object({ metrics: z.array(z.object({ value: txt, pt: txt, en: txt })).optional() }));
+const sec = z.array(z.object({ title: txt, text: txt })).optional();
+const extra = z.object({ pt: z.object({ architecture: sec, decisions: sec, security: sec, learnings: sec }).passthrough(), en: z.object({ architecture: sec, decisions: sec, security: sec, learnings: sec }).passthrough() }).passthrough();
+const feature = z.object({ date: iso, status: z.enum(['entregue', 'em-andamento', 'planejada']), group: z.string().optional(), tags: z.array(txt) })
   .and(bi({ title: txt, impact: txt, body: txt }));
 const check = (schema, file) => {
   const r = schema.safeParse(read(file));
@@ -28,6 +31,7 @@ for (const slug of reg.projects) {
   const dir = path.join(root, 'projects', slug);
   if (!fs.existsSync(path.join(dir, 'project.json'))) { errors.push(`falta project.json: ${slug}`); continue; }
   check(project, path.join(dir, 'project.json'));
+  check(extra, path.join(dir, 'project.json'));
   if (read(path.join(dir, 'project.json')).slug !== slug) errors.push(`slug diferente da pasta: ${slug}`);
   const fdir = path.join(dir, 'features');
   for (const f of fs.existsSync(fdir) ? fs.readdirSync(fdir) : []) check(feature, path.join(fdir, f));

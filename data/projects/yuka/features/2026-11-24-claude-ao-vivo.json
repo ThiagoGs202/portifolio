@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "ia",
+  "tags": [
+    "dashboard",
+    "hooks"
+  ],
+  "pt": {
+    "title": "Monitor Claude ao vivo",
+    "impact": "Vejo o que o Claude Code está fazendo, sem expor conteúdo.",
+    "body": "Dashboard local, atualizado a cada 3 s, com sessões do Claude Code no PC, ferramenta atual, top ferramentas, cota e últimas delegações. Um hook grava só metadados, nunca prompt, entrada de ferramenta ou caminho completo. Limitação: não vê threads do claude.ai web."
+  },
+  "en": {
+    "title": "Claude live monitor",
+    "impact": "I see what Claude Code is doing without exposing content.",
+    "body": "A local dashboard, refreshed every 3 s, with Claude Code sessions on the PC, current tool, top tools, quota and recent delegations. A hook records metadata only, never prompts, tool input or full paths. Limitation: it cannot see claude.ai web threads."
+  }
+}
