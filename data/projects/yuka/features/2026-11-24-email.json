@@ -9,11 +9,11 @@
   "pt": {
     "title": "E-mail esperto somente leitura",
     "impact": "Resumo e prazos sem arriscar a caixa de entrada.",
-    "body": "Lê até 2 contas sem nunca marcar como lido, mover, apagar ou enviar. Resume os importantes, extrai prazos por regex (sem IA) e avisa na véspera e no dia. O texto do e-mail é tratado como dado não confiável. Aguarda teste real em parte dos casos."
+    "body": "Lê até 2 contas sem nunca marcar como lido, mover, apagar ou enviar. Resume os importantes, extrai prazos por regex (sem IA) e avisa na véspera e no dia. O texto do e-mail é tratado como dado não confiável. Triagem, envio e resposta existem, mas nunca sem confirmação (cartão Permitir/Negar). Aguarda teste real em parte dos casos."
   },
   "en": {
     "title": "Smart read-only email",
     "impact": "Summaries and deadlines without risking the inbox.",
-    "body": "Reads up to 2 accounts and never marks as read, moves, deletes or sends. Summarizes important mail, extracts deadlines by regex (no AI) and reminds the day before and on the day. Email text is treated as untrusted data. Real-world testing is still pending for part of the cases."
+    "body": "Reads up to 2 accounts and never marks as read, moves, deletes or sends. Summarizes important mail, extracts deadlines by regex (no AI) and reminds the day before and on the day. Email text is treated as untrusted data. Triage, sending and replying exist, but never without confirmation (Allow/Deny card). Real-world testing is still pending for part of the cases."
   }
 }
