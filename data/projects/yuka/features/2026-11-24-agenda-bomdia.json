@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "produtividade",
+  "tags": [
+    "agenda",
+    "rotina"
+  ],
+  "pt": {
+    "title": "Agenda, lembretes e bom dia",
+    "impact": "Um resumo falado do dia.",
+    "body": "Google Agenda somente leitura, via link iCal e sem OAuth, com aviso 15 min antes, além de lembretes, timers e previsão do tempo. O \"bom dia\" reúne agenda, lembretes, tarefas, contas, prazos e revisão de idiomas, e um backup automático diário guarda os 7 mais recentes sem segredos."
+  },
+  "en": {
+    "title": "Calendar, reminders and morning briefing",
+    "impact": "A spoken summary of the day.",
+    "body": "Read-only Google Calendar via iCal link with no OAuth, warning 15 min before, plus reminders, timers and weather. The morning briefing combines calendar, reminders, tasks, bills, deadlines and language review, and a daily automatic backup keeps the 7 latest without secrets."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "produtividade",
+  "tags": [
+    "pwa",
+    "iphone"
+  ],
+  "pt": {
+    "title": "Lista de compras sincronizada com o iPhone",
+    "impact": "Funciona até sem internet.",
+    "body": "Adicionar, remover e marcar itens por voz. Uma página instalável no iPhone sincroniza nos dois sentidos a cada 4 s e mostra a última lista offline."
+  },
+  "en": {
+    "title": "Shopping list synced with the phone",
+    "impact": "Works even offline.",
+    "body": "Add, remove and check items by voice. An installable phone page syncs both ways every 4 s and shows the last list offline."
+  }
+}

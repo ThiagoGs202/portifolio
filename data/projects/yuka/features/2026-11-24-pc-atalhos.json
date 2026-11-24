@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "produtividade",
+  "tags": [
+    "automacao",
+    "seguranca"
+  ],
+  "pt": {
+    "title": "Controle do PC e atalhos por voz",
+    "impact": "Automação sem shell livre.",
+    "body": "Status do PC, bloqueio, janelas e prints sem confirmação. Limpar temporários, trocar plano de energia, desligar e fechar programas pedem confirmação, e desligar tem 60 s para cancelar. Atalhos como \"modo trabalho\" abrem vários apps, sites e pastas, só da lista permitida. Nada disso roda pelo acesso remoto."
+  },
+  "en": {
+    "title": "PC control and voice shortcuts",
+    "impact": "Automation without a free shell.",
+    "body": "PC status, lock, windows and screenshots need no confirmation. Cleaning temp files, switching power plan, shutting down and closing programs ask first, and shutdown has a 60 s cancel window. Shortcuts like \"work mode\" open several apps, sites and folders, only from the allowed list. None of this runs over remote access."
+  }
+}

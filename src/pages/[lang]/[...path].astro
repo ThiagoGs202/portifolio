@@ -96,16 +96,6 @@ const desc = page === 'project' ? current[lang].summary : A.tagline;
       {current.links.repo && <a class="btn" href={current.links.repo} rel="noopener noreferrer">{t.repo}</a>}
       {current.links.demo && <a class="btn" href={current.links.demo} rel="noopener noreferrer">{t.demo}</a>}
     </p>
-    <h2>{t.features}</h2>
-    <div class="timeline">
-      {current.features.map((f: any, i: number) => (
-        <details name="features" open={i === 0}>
-          <summary><span>{f[lang].title}</span> <time datetime={f.date}>{fmt(f.date)}</time> <span class="badge">{t.delivered[f.status as 'entregue']}</span></summary>
-          <p class="impact">{f[lang].impact}</p><p>{f[lang].body}</p>
-          <ul class="tags">{f.tags.map((g: string) => <li>{g}</li>)}</ul>
-        </details>
-      ))}
-    </div>
   </article>
 )}
 {page === 'about' && (

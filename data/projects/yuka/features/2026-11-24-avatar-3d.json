@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "voz",
+  "tags": [
+    "painel",
+    "3d"
+  ],
+  "pt": {
+    "title": "Avatar 3D no painel",
+    "impact": "Feedback visual sem pesar no PC.",
+    "body": "Avatar VRM (three.js) com humor pelo texto e pelo estado, boca sincronizada com o áudio e gestos. Custa cerca de 1 ms por quadro e cai para o núcleo 2D se não houver WebGL ou modelo."
+  },
+  "en": {
+    "title": "3D avatar on the panel",
+    "impact": "Visual feedback that stays light on the PC.",
+    "body": "A VRM avatar (three.js) with mood from text and state, lip-sync to the audio and gestures. It costs about 1 ms per frame and falls back to a 2D core when WebGL or the model is missing."
+  }
+}

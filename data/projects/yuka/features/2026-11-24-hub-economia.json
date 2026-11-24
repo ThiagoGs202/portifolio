@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "ia",
+  "tags": [
+    "mcp",
+    "claude-code"
+  ],
+  "pt": {
+    "title": "Hub MCP e modo economia",
+    "impact": "Delegação com fallback e controle de cota.",
+    "body": "Um hub MCP roteia leitura, pesquisa e rascunhos para Gemini, OpenCode, NVIDIA, OpenRouter e Ollama local. Um hook injeta a cota de uso do Claude (janela de 5 h e semanal) e os limiares de 60%, 80% e 90% aumentam a delegação; código simples vai primeiro ao modelo local, grátis."
+  },
+  "en": {
+    "title": "MCP hub and economy mode",
+    "impact": "Delegation with fallback and quota control.",
+    "body": "An MCP hub routes reading, research and drafts to Gemini, OpenCode, NVIDIA, OpenRouter and local Ollama. A hook injects Claude usage quota (5-hour and weekly windows) and 60%, 80% and 90% thresholds increase delegation; simple code goes to the free local model first."
+  }
+}

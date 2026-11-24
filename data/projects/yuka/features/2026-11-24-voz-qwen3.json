@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "voz",
+  "tags": [
+    "voz",
+    "local"
+  ],
+  "pt": {
+    "title": "Voz local Qwen3 com reserva Piper",
+    "impact": "Cerca de 415 ms até o primeiro som, sem custo.",
+    "body": "A fala usa Qwen3-TTS em processo separado (p90 de 474 ms, cerca de 2,4 GB de VRAM) com Piper como reserva, e normaliza números, datas, horas e dinheiro por extenso em pt-BR. Uma avaliação de TTS pago levou à decisão de manter a voz local."
+  },
+  "en": {
+    "title": "Local Qwen3 voice with Piper fallback",
+    "impact": "About 415 ms to first audio, at zero cost.",
+    "body": "Speech uses Qwen3-TTS in a separate process (p90 of 474 ms, about 2.4 GB of VRAM) with Piper as backup, and spells out numbers, dates, times and money in pt-BR. Evaluating paid TTS led to keeping the voice local."
+  }
+}

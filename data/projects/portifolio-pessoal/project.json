@@ -6,8 +6,15 @@
   "createdAt": "2026-11-24",
   "lastUpdatedAt": "2026-11-24T00:00:00Z",
   "lastUpdateRef": "updates/2026-11-24",
-  "stack": ["Astro", "TypeScript", "GitHub Pages"],
-  "links": { "repo": "https://github.com/ThiagoGs202/portifolio", "demo": "https://thiagogs202.github.io/portifolio/" },
+  "stack": [
+    "Astro",
+    "TypeScript",
+    "GitHub Pages"
+  ],
+  "links": {
+    "repo": null,
+    "demo": null
+  },
   "featured": true,
   "visibility": "public",
   "pt": {

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "voz",
+  "tags": [
+    "voz",
+    "ia"
+  ],
+  "pt": {
+    "title": "Conversa por voz com cérebro em camadas",
+    "impact": "Respostas rápidas e sem custo para o que é frequente.",
+    "body": "Escuta pelo microfone, transcreve com Whisper (GPU, com vocabulário próprio e correção de nomes mal ouvidos) e decide a resposta: regras locais primeiro, depois uma fila de IAs gratuitas em nuvem ordenada pela latência medida (Groq, Cerebras, Mistral, Gemini, OpenRouter, NVIDIA) e Ollama local como reserva. Comandos exigem verbo no imperativo; passado, negação e perguntas nunca disparam ações."
+  },
+  "en": {
+    "title": "Voice conversation with a layered brain",
+    "impact": "Fast, free answers for everything frequent.",
+    "body": "Listens through the microphone, transcribes with Whisper (GPU, custom vocabulary and fixes for misheard names) and decides the answer: local rules first, then a latency-ordered queue of free cloud LLMs (Groq, Cerebras, Mistral, Gemini, OpenRouter, NVIDIA) and a local Ollama fallback. Commands require an imperative verb; past tense, negation and questions never trigger actions."
+  }
+}

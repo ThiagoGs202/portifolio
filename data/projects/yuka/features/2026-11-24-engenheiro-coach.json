@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "ia",
+  "tags": [
+    "planejamento",
+    "carreira"
+  ],
+  "pt": {
+    "title": "Modos Engenheiro Chefe e Coach",
+    "impact": "Planejar projetos e ensaiar conversas difíceis.",
+    "body": "O Engenheiro Chefe guia o planejamento em fases com a IA mais forte disponível, gera um prompt final e, com duas confirmações, cria a pasta do projeto e abre o Claude nela. O Coach ensaia conversas difíceis e registra notas de 0 a 10 em 5 habilidades."
+  },
+  "en": {
+    "title": "Chief Engineer and Coach modes",
+    "impact": "Plan projects and rehearse hard conversations.",
+    "body": "Chief Engineer guides phased planning with the strongest available model, produces a final prompt and, after two confirmations, creates the project folder and opens Claude in it. Coach rehearses hard conversations and scores 5 skills from 0 to 10."
+  }
+}

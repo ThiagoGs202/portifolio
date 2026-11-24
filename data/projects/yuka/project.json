@@ -6,16 +6,254 @@
   "createdAt": "2026-11-21",
   "lastUpdatedAt": "2026-11-24T00:00:00Z",
   "lastUpdateRef": "updates/2026-11-24",
-  "stack": ["Python", "Ollama", "Voz", "Obsidian"],
-  "links": { "repo": null, "demo": null },
+  "stack": [
+    "Python",
+    "Whisper",
+    "Qwen3-TTS",
+    "Ollama",
+    "three.js",
+    "Tailscale",
+    "MCP",
+    "Claude Code",
+    "pytest",
+    "Obsidian"
+  ],
+  "links": {
+    "repo": null,
+    "demo": null
+  },
   "featured": true,
   "visibility": "public",
   "pt": {
-    "summary": "Assistente de voz local em português que cuida de finanças, tarefas, vagas e estudos.",
-    "pitch": "A Yuka roda no meu computador, entende comandos falados em português e automatiza a rotina: orçamento, contas a pagar, funil de candidaturas, tarefas, aulas de idiomas e anotações no Obsidian. Usa modelos locais, então funciona sem enviar meus dados para a nuvem."
+    "summary": "Assistente de voz local em português: conversa, automatiza a rotina e protege seus dados.",
+    "pitch": "Quero um assistente que entenda português do Brasil, rode no meu PC e não envie minha vida para a nuvem. A Yuka escuta, transcreve com Whisper, decide por regras locais, IAs gratuitas em nuvem ou Ollama e responde com voz local e um avatar 3D. É de uso diário e tem 125 testes, confirmação humana para toda ação que sai do computador e backups com rollback.",
+    "architecture": [
+      {
+        "title": "Fluxo",
+        "text": "Microfone → Whisper → regras locais → IA em nuvem ou Ollama → voz Qwen3 → painel com avatar."
+      },
+      {
+        "title": "Um programa, vários modos",
+        "text": "Um cabeçalho carrega 18 partes (~6.200 linhas) no mesmo espaço de nomes, com modos: tudo, só núcleo, voz, servidor MCP de permissões e ponte com o Claude."
+      },
+      {
+        "title": "Ferramentas como plugins",
+        "text": "Ferramenta nova é um arquivo em ferramentas/ (27 módulos hoje), recarregável sem reiniciar."
+      },
+      {
+        "title": "Painel e acesso remoto",
+        "text": "Servidor web local (só 127.0.0.1) com eventos em tempo real; no iPhone, via Tailscale e login próprio, como PWA instalável."
+      },
+      {
+        "title": "Ecossistema Claude Code",
+        "text": "Servidor MCP de permissões, hub de conectores e hooks (eventos, cota, lint, compactação segura com resumo para o cofre)."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Regras locais antes da IA",
+        "text": "Latência e custo zero para comandos frequentes, e a IA deixa de adivinhar ferramentas."
+      },
+      {
+        "title": "Prompt de sistema curto",
+        "text": "Com prompt longo, a IA local errou cerca de metade das chamadas de ferramenta."
+      },
+      {
+        "title": "Fila de IAs gratuitas por latência",
+        "text": "Resiliência e custo zero, em vez de depender de um único provedor."
+      },
+      {
+        "title": "Regex em vez de IA para prazos e valores",
+        "text": "Determinístico, testável e sem enviar e-mails a terceiros."
+      },
+      {
+        "title": "Dashboards em SVG puro",
+        "text": "Sem dependência e sem rede, com carregamento instantâneo."
+      },
+      {
+        "title": "Qwen3 local em vez de TTS pago",
+        "text": "Uma avaliação de 707 falas manteve a voz local: ~415 ms e custo zero."
+      },
+      {
+        "title": "Remover a voz de reserva XTTS",
+        "text": "O ambiente caiu de 7.265 MB para 2.445 MB; a fala agora é Qwen3 e Piper."
+      },
+      {
+        "title": "Riscos conscientes, documentados",
+        "text": "Ex.: token no HTML do painel local, pois qualquer processo do mesmo usuário leria o arquivo."
+      }
+    ],
+    "security": [
+      {
+        "title": "Humano no circuito",
+        "text": "Toda ação que sai do computador ou é destrutiva vira uma proposta com cartão Permitir/Negar e só executa com \"sim\" ou botão; a proposta expira em 300 s."
+      },
+      {
+        "title": "Menor privilégio",
+        "text": "E-mail e Google só leitura, lista de apps permitidos, pastas liberadas, nunca shell livre e ferramentas sensíveis bloqueadas no acesso remoto."
+      },
+      {
+        "title": "Privacidade local-first",
+        "text": "Voz, transcrição e vetores rodam no PC; notas privadas ficam invisíveis e só trechos achados vão para a IA."
+      },
+      {
+        "title": "Auditoria interna",
+        "text": "Corrigiu desserialização insegura, login remoto com cabeçalho forjável, sessão sem logout, Content-Length negativo, falta de timeout e URLs com credenciais."
+      },
+      {
+        "title": "Backups e rollback",
+        "text": "Backup com ROLLBACK.txt antes de cada mudança relevante e quarentena em vez de apagar; segredos nunca entram."
+      }
+    ],
+    "learnings": [
+      {
+        "title": "Acionamentos falsos",
+        "text": "Frases mal ouvidas disparavam a música; a regra passou a exigir verbo imperativo no início e nunca dispara com \"?\"."
+      },
+      {
+        "title": "Teste que abria o navegador de verdade",
+        "text": "Regra nova: teste nunca abre navegador, microfone ou rede reais (usa stubs)."
+      },
+      {
+        "title": "Whisper ouvindo \"Claude\" como \"Cloud\"",
+        "text": "Corrigido por contexto e vocabulário dedicado, sem custo de velocidade."
+      },
+      {
+        "title": "Medir antes de apagar",
+        "text": "A auditoria mostrou que o peso do projeto estava em ambientes e modelos, não no código."
+      }
+    ]
   },
   "en": {
-    "summary": "A local Portuguese voice assistant that handles finances, tasks, job hunting and study.",
-    "pitch": "Yuka runs on my own computer, understands spoken Portuguese commands and automates daily routines: budget, bills, job application funnel, tasks, language lessons and Obsidian notes. It uses local models, so my data stays off the cloud."
-  }
+    "summary": "A local Brazilian-Portuguese voice assistant that chats, automates routines and protects your data.",
+    "pitch": "I wanted an assistant that understands Brazilian Portuguese, runs on my PC and does not send my life to the cloud. Yuka listens, transcribes with Whisper, decides via local rules, free cloud LLMs or Ollama, and answers with a local voice and a 3D avatar. It is used daily, with 125 tests, human confirmation for every action that leaves the computer, and backups with rollback.",
+    "architecture": [
+      {
+        "title": "Flow",
+        "text": "Microphone → Whisper → local rules → cloud LLM or Ollama → Qwen3 voice → panel with avatar."
+      },
+      {
+        "title": "One program, several modes",
+        "text": "A header loads 18 parts (~6,200 lines) in one namespace, with modes: everything, core only, voice, permissions MCP server and Claude bridge."
+      },
+      {
+        "title": "Tools as plug-ins",
+        "text": "A new tool is one file in ferramentas/ (27 modules today), reloadable without restart."
+      },
+      {
+        "title": "Panel and remote access",
+        "text": "Local web server (127.0.0.1 only) with real-time events; on the phone, via Tailscale and its own login, as an installable PWA."
+      },
+      {
+        "title": "Claude Code ecosystem",
+        "text": "Permissions MCP server, connector hub and hooks (events, quota, lint, safe compaction with a summary to the vault)."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Local rules before AI",
+        "text": "Zero latency and cost for frequent commands, and the AI stops guessing tools."
+      },
+      {
+        "title": "Short system prompt",
+        "text": "With a long prompt, the local model got about half the tool calls wrong."
+      },
+      {
+        "title": "Latency-ordered queue of free LLMs",
+        "text": "Resilience at zero cost, instead of depending on a single provider."
+      },
+      {
+        "title": "Regex instead of AI for deadlines and amounts",
+        "text": "Deterministic, testable and without sending email to third parties."
+      },
+      {
+        "title": "Plain-SVG dashboards",
+        "text": "No dependencies and no network, with instant loading."
+      },
+      {
+        "title": "Local Qwen3 instead of paid TTS",
+        "text": "An evaluation of 707 utterances kept the voice local: ~415 ms and zero cost."
+      },
+      {
+        "title": "Dropping the XTTS fallback voice",
+        "text": "The environment shrank from 7,265 MB to 2,445 MB; speech is now Qwen3 then Piper."
+      },
+      {
+        "title": "Conscious, documented risks",
+        "text": "E.g. a token in the local panel HTML, since any process of the same user could read the file."
+      }
+    ],
+    "security": [
+      {
+        "title": "Human in the loop",
+        "text": "Every action that leaves the computer or is destructive becomes a proposal with an Allow/Deny card and runs only on \"yes\" or button; proposals expire in 300 s."
+      },
+      {
+        "title": "Least privilege",
+        "text": "Read-only email and Google, an allowed-apps list, approved folders, never a free shell and sensitive tools blocked over remote access."
+      },
+      {
+        "title": "Local-first privacy",
+        "text": "Speech, transcription and vectors run on the PC; private notes stay invisible and only found snippets reach the AI."
+      },
+      {
+        "title": "Internal audit",
+        "text": "Fixed unsafe deserialization, remote login with forgeable header, session without logout, negative Content-Length, missing timeout and URLs with credentials."
+      },
+      {
+        "title": "Backups and rollback",
+        "text": "A backup with ROLLBACK.txt before each relevant change and quarantine instead of deleting; secrets never go in."
+      }
+    ],
+    "learnings": [
+      {
+        "title": "False triggers",
+        "text": "Misheard phrases started music by themselves; the rule now requires an imperative verb at the start and never fires on \"?\"."
+      },
+      {
+        "title": "A test that really opened the browser",
+        "text": "New rule: tests never open a real browser, microphone or network (they use stubs)."
+      },
+      {
+        "title": "Whisper hearing \"Claude\" as \"Cloud\"",
+        "text": "Fixed with context and a dedicated vocabulary, at no speed cost."
+      },
+      {
+        "title": "Measure before deleting",
+        "text": "The audit showed the project weight was in environments and models, not code."
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "value": "125",
+      "pt": "testes automatizados (~21 s)",
+      "en": "automated tests (~21 s)"
+    },
+    {
+      "value": "23 s → 12,5 s",
+      "pt": "inicialização até poder falar",
+      "en": "startup until it can talk"
+    },
+    {
+      "value": "~415 ms",
+      "pt": "até o primeiro som da voz",
+      "en": "to first voice audio"
+    },
+    {
+      "value": "6",
+      "pt": "provedores de IA em fila",
+      "en": "AI providers in queue"
+    },
+    {
+      "value": "~6.200",
+      "pt": "linhas no núcleo + 27 ferramentas",
+      "en": "core lines + 27 tools"
+    },
+    {
+      "value": "100%",
+      "pt": "voz e transcrição locais",
+      "en": "local speech and transcription"
+    }
+  ]
 }

@@ -1,3 +1,0 @@
-{ "date": "2026-11-23", "status": "entregue", "tags": ["financas", "automacao"],
-  "pt": { "title": "Contas a pagar a partir do e-mail", "impact": "Boletos nunca passam do vencimento.", "body": "Lê boletos e faturas nas caixas de e-mail em modo somente leitura, extrai emissor, valor e vencimento, lança na planilha e cria lembretes 3 dias antes e no dia. Nunca paga nada sozinha." },
-  "en": { "title": "Bills payable from email", "impact": "Bills never slip past their due date.", "body": "Reads bills and invoices from mailboxes in read-only mode, extracts issuer, amount and due date, logs them in the spreadsheet and sets reminders 3 days before and on the day. It never pays anything on its own." } }
