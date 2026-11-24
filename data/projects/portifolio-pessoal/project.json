@@ -1,0 +1,21 @@
+{
+  "slug": "portifolio-pessoal",
+  "name": "Portifolio Pessoal",
+  "status": "ativo",
+  "kind": "claude-project",
+  "createdAt": "2026-11-24",
+  "lastUpdatedAt": "2026-11-24T00:00:00Z",
+  "lastUpdateRef": "updates/2026-11-24",
+  "stack": ["Astro", "TypeScript", "GitHub Pages"],
+  "links": { "repo": "https://github.com/ThiagoGs202/portifolio", "demo": "https://thiagogs202.github.io/portifolio/" },
+  "featured": true,
+  "visibility": "public",
+  "pt": {
+    "summary": "Este site: portfólio gratuito, bilíngue, atualizado só quando eu mando.",
+    "pitch": "Site estático em Astro hospedado no GitHub Pages, sem custo e sem servidor. Reúne meus projetos feitos com o Claude, cada um com resumo e funcionalidades entregues, e só muda quando eu peço 'atualizar portifolio', sempre por pull request aprovado por mim."
+  },
+  "en": {
+    "summary": "This site: a free, bilingual portfolio that only changes when I say so.",
+    "pitch": "A static Astro site hosted on GitHub Pages, at zero cost and with no server. It gathers my Claude-built projects, each with a summary and delivered features, and it only changes when I say 'update portfolio', always through a pull request I approve."
+  }
+}

@@ -1,0 +1,3 @@
+{ "date": "2026-11-22", "status": "entregue", "tags": ["obsidian", "idiomas"],
+  "pt": { "title": "Notas por voz, tarefas e aulas de idiomas", "impact": "A memória de longo prazo se alimenta sozinha.", "body": "Comandos como 'anota isso' criam notas no Obsidian sem apagar nada; as tarefas ficam numa lista única e o 'bom dia' cita as de hoje. Aulas de idiomas viram notas com vocabulário e treino de pronúncia." },
+  "en": { "title": "Voice notes, tasks and language lessons", "impact": "Long-term memory feeds itself.", "body": "Commands like 'note this' create Obsidian notes without deleting anything; tasks live in a single list and the morning greeting mentions today's. Language lessons become notes with vocabulary and pronunciation practice." } }

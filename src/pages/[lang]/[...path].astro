@@ -1,0 +1,138 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ui, about, projects, updates, registry, langs, type Lang } from '../../lib/data';
+export function getStaticPaths() {
+  const ps = projects();
+  const out: any[] = [];
+  for (const lang of langs) {
+    const s = ui[lang].slugs;
+    out.push({ params: { lang, path: undefined }, props: { page: 'home' } });
+    out.push({ params: { lang, path: s.projects }, props: { page: 'projects' } });
+    out.push({ params: { lang, path: s.about }, props: { page: 'about' } });
+    out.push({ params: { lang, path: s.news }, props: { page: 'news' } });
+    for (const p of ps) out.push({ params: { lang, path: `${s.projects}/${p.slug}` }, props: { page: 'project', slug: p.slug } });
+  }
+  return out;
+}
+const { lang } = Astro.params as { lang: Lang };
+const { page, slug } = Astro.props as { page: string; slug?: string };
+const t = ui[lang];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ps = projects();
+const href = (k: string) => {
+  const [sec, sl] = k.split('/');
+  return `${base}/${lang}/${sec === 'home' ? '' : t.slugs[sec as 'projects'] + '/'}${sl ? sl + '/' : ''}`;
+};
+const fmt = (d: string) => new Date(d).toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const totalFeatures = ps.reduce((n: number, p: any) => n + p.features.length, 0);
+const last = registry.lastPortfolioUpdate;
+const A = about[lang];
+const current = ps.find((p: any) => p.slug === slug);
+const title = page === 'project' ? `${current.name} · Thiago G. Silva` : page === 'home' ? `Thiago G. Silva · ${A.role}` : `${t.nav[page as 'projects']} · Thiago G. Silva`;
+const desc = page === 'project' ? current[lang].summary : A.tagline;
+---
+<Base lang={lang} title={title} description={desc} key={page === 'project' ? `projects/${slug}` : page}>
+{page === 'home' && (
+  <section class="hero reveal">
+    <p class="role">{A.role}</p>
+    <h1>{t.hero}</h1>
+    <p class="sub">{A.tagline} {t.heroSub}</p>
+    <p><a class="btn primary" href={href('projects')}>{t.seeProjects}</a></p>
+    <div class="counters" aria-label="stats">
+      <div><b>{ps.length}</b><span>{t.counters.p}</span></div>
+      <div><b>{totalFeatures}</b><span>{t.counters.f}</span></div>
+      <div><b><time datetime={last} data-ago={last}>{fmt(last)}</time></b><span>{t.counters.u}</span></div>
+    </div>
+    <h2>{t.featured}</h2>
+    <div class="grid">
+      {ps.filter((p: any) => p.featured).map((p: any) => (
+        <article class="card"><h3><a href={href(`projects/${p.slug}`)}>{p.name}</a></h3><p>{p[lang].summary}</p>
+          <ul class="tags">{p.stack.map((s: string) => <li>{s}</li>)}</ul></article>
+      ))}
+    </div>
+  </section>
+)}
+{page === 'projects' && (
+  <section>
+    <h1>{t.nav.projects}</h1>
+    <div class="filters">
+      <input id="q" type="search" placeholder={t.search} aria-label={t.search} />
+      <select id="stack" aria-label={t.stack}><option value="">{t.allStack}</option>{[...new Set(ps.flatMap((p: any) => p.stack))].sort().map((s: any) => <option>{s}</option>)}</select>
+      <select id="sort" aria-label={t.sort}><option value="recent">{t.sortRecent}</option><option value="features">{t.sortFeatures}</option></select>
+    </div>
+    <div class="grid" id="list">
+      {ps.map((p: any) => (
+        <article class="card" data-text={`${p.name} ${p[lang].summary} ${p.stack.join(' ')}`.toLowerCase()} data-stack={p.stack.join('|')} data-date={p.lastUpdatedAt} data-n={p.features.length}>
+          <h3><a href={href(`projects/${p.slug}`)}>{p.name}</a></h3><p>{p[lang].summary}</p>
+          <ul class="tags">{p.stack.map((s: string) => <li>{s}</li>)}</ul>
+          <small><span class="badge ok">{t.status[p.status as 'ativo']}</span> · {p.features.length} {t.counters.f}</small>
+        </article>
+      ))}
+    </div>
+    <p id="none" class="hidden">{t.none}</p>
+    <script is:inline>
+      (function(){var q=document.getElementById('q'),st=document.getElementById('stack'),so=document.getElementById('sort'),list=document.getElementById('list'),none=document.getElementById('none');
+      var cards=[].slice.call(list.children);
+      function apply(){var v=q.value.trim().toLowerCase(),s=st.value,n=0;
+        cards.sort(function(a,b){return so.value==='features'?b.dataset.n-a.dataset.n:(b.dataset.date>a.dataset.date?1:-1)}).forEach(function(c){list.appendChild(c);
+          var ok=(!v||c.dataset.text.indexOf(v)>-1)&&(!s||c.dataset.stack.split('|').indexOf(s)>-1);c.classList.toggle('hidden',!ok);if(ok)n++});
+        none.classList.toggle('hidden',n>0);
+        var u=new URL(location.href);[['q',v],['stack',s],['sort',so.value==='recent'?'':so.value]].forEach(function(p){p[1]?u.searchParams.set(p[0],p[1]):u.searchParams.delete(p[0])});history.replaceState(null,'',u)}
+      var P=new URLSearchParams(location.search);q.value=P.get('q')||'';st.value=P.get('stack')||'';so.value=P.get('sort')||'recent';
+      [q,st,so].forEach(function(e){e.addEventListener('input',apply)});
+      document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();q.focus()}});apply()})();
+    </script>
+  </section>
+)}
+{page === 'project' && (
+  <article>
+    <p><a href={href('projects')}>{t.back}</a></p>
+    <h1>{current.name}</h1>
+    <p>{current[lang].pitch}</p>
+    <p><span class="badge ok">{t.status[current.status as 'ativo']}</span> · {t.updated}: <time datetime={current.lastUpdatedAt}>{fmt(current.lastUpdatedAt)}</time></p>
+    <h2>{t.stack}</h2>
+    <ul class="tags">{current.stack.map((s: string) => <li>{s}</li>)}</ul>
+    <p>
+      {current.links.repo && <a class="btn" href={current.links.repo} rel="noopener noreferrer">{t.repo}</a>}
+      {current.links.demo && <a class="btn" href={current.links.demo} rel="noopener noreferrer">{t.demo}</a>}
+    </p>
+    <h2>{t.features}</h2>
+    <div class="timeline">
+      {current.features.map((f: any, i: number) => (
+        <details name="features" open={i === 0}>
+          <summary><span>{f[lang].title}</span> <time datetime={f.date}>{fmt(f.date)}</time> <span class="badge">{t.delivered[f.status as 'entregue']}</span></summary>
+          <p class="impact">{f[lang].impact}</p><p>{f[lang].body}</p>
+          <ul class="tags">{f.tags.map((g: string) => <li>{g}</li>)}</ul>
+        </details>
+      ))}
+    </div>
+  </article>
+)}
+{page === 'about' && (
+  <section>
+    <h1>{t.about}</h1>
+    <p class="role">{A.role}</p>
+    <p>{A.bio}</p>
+    <div class="about-grid">
+      <dl>
+        <dt>{t.about}</dt><dd>{about.name} · {A.location}</dd>
+        <dt>{t.education}</dt><dd>{A.education}</dd>
+        <dt>{t.languages}</dt><dd>{A.languages}</dd>
+        <dt>{t.contact}</dt><dd><a href={about.links.github} rel="noopener noreferrer">GitHub</a></dd>
+      </dl>
+      <div><h2>{t.skills}</h2><ul class="tags">{A.skills.map((s: string) => <li>{s}</li>)}</ul></div>
+    </div>
+  </section>
+)}
+{page === 'news' && (
+  <section>
+    <h1>{t.newsTitle}</h1>
+    <div class="timeline">
+      {updates().map((u: any) => (
+        <details name="news" open><summary><time datetime={u.date}>{fmt(u.date)}</time></summary><p>{u[lang]}</p>
+          <ul class="tags">{u.projects.map((s: string) => <li><a href={href(`projects/${s}`)}>{ps.find((p: any) => p.slug === s)?.name}</a></li>)}</ul></details>
+      ))}
+    </div>
+  </section>
+)}
+</Base>

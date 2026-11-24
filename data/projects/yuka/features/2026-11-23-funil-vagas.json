@@ -1,0 +1,3 @@
+{ "date": "2026-11-23", "status": "entregue", "tags": ["carreira", "voz"],
+  "pt": { "title": "Painel de vagas e funil de candidaturas", "impact": "Visão clara de cada etapa e follow-ups.", "body": "Atualiza a etapa de cada candidatura por voz (entrevista, oferta, recusa), mantém um painel com funil e cartões e cobra follow-ups vencidos, ignorando quem já respondeu." },
+  "en": { "title": "Job board and application funnel", "impact": "A clear view of every stage and follow-up.", "body": "Updates each application's stage by voice (interview, offer, rejection), keeps a funnel dashboard with cards and flags overdue follow-ups, skipping those who already replied." } }

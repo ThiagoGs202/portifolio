@@ -1,0 +1,14 @@
+{
+  "name": "portifolio",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run validate && astro build",
+    "preview": "astro preview",
+    "validate": "node scripts/validate-data.mjs"
+  },
+  "dependencies": { "astro": "^5.0.0", "zod": "^3.23.0" }
+}

@@ -1,0 +1,11 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Thiago G. Silva</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href={`${base}/pt/`}>
+<noscript><meta http-equiv="refresh" content={`0; url=${base}/pt/`}></noscript>
+<script is:inline define:vars={{ base }}>
+var l='pt';try{l=localStorage.getItem('lang')||((navigator.language||'pt').slice(0,2)==='en'?'en':'pt')}catch(e){}
+location.replace(base+'/'+l+'/');
+</script></head><body><p><a href={`${base}/pt/`}>Português</a> · <a href={`${base}/en/`}>English</a></p></body></html>

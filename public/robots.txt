@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thiagogs202.github.io/portifolio/sitemap.xml
