@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "status": "entregue",
+  "group": "estudo",
+  "tags": [
+    "aprendizado",
+    "offline"
+  ],
+  "pt": {
+    "title": "Aprendizado ocioso e documentação offline",
+    "impact": "Estuda sozinha quando está parada, só com IAs gratuitas.",
+    "body": "Com a Yuka parada por 10 minutos, ela monta um dicionário pessoal (termos confirmados entram no vocabulário do Whisper) e resumos de documentação de repositórios públicos, com critérios fixos de qualidade e no máximo 6 por dia. Também busca em documentação de programação baixada, offline, com índice BM25 em disco."
+  },
+  "en": {
+    "title": "Idle learning and offline documentation",
+    "impact": "It studies by itself when idle, using free models only.",
+    "body": "After 10 idle minutes, Yuka builds a personal dictionary (confirmed terms join the Whisper vocabulary) and summaries of public-repository documentation, with fixed quality criteria and at most 6 per day. It also searches downloaded programming documentation offline, with an on-disk BM25 index."
+  }
+}
