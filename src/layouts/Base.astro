@@ -12,7 +12,7 @@ const path = (l: Lang, k: string) => {
   const sec = section === 'home' ? '' : ui[l].slugs[section as 'projects'] + '/';
   return `${base}/${l}/${sec}${slug ? slug + '/' : ''}`;
 };
-const nav = ['home', 'projects', 'about', 'news'] as const;
+const nav = ['home', 'projects', 'news'] as const;
 const url = new URL(path(lang, pageKey), Astro.site).href;
 ---
 <!doctype html>
