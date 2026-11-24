@@ -231,7 +231,7 @@
       "en": "automated tests (~21 s)"
     },
     {
-      "value": "23 s → 12,5 s",
+      "value": { "pt": "12,5 s", "en": "12.5 s" },
       "pt": "inicialização até poder falar",
       "en": "startup until it can talk"
     },
